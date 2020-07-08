@@ -1,0 +1,142 @@
+body {
+    margin: 0 10px;
+    background-color: rgb(199, 199, 199);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* header */
+h2 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+/* Storing some fonts */
+.font-1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* for items having flex class */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* for to-do app box */
+#todo-box-div {
+    box-shadow: 0 3px 5px 0 rgb(44, 44, 44);
+    width: 52%;
+    position: absolute;
+    background-color: rgb(238, 238, 238);
+    left: 24%;
+    top: 16%;
+    padding: 5px;
+}
+
+/* todo list form */
+
+#todo-form-div {
+    width: 70%;
+    position: relative;
+}
+
+#todo-list-div {
+    position: relative;
+}
+
+form > * {
+    width: 100%;
+}
+
+#to-do-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* For input fields */
+
+.bottom-b {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1.3px solid rgb(194, 201, 183);
+}
+
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 16px;
+}
+
+#input-inline {
+    width: 100%;
+}
+
+#input-inline > * {
+    width: 50%;
+}
+
+#input-inline input:nth-child(1) {
+    border-right: 1px solid rgb(83, 81, 81);
+}
+
+/* the textarea */
+#description {
+    height: 140px;
+    margin: 15px 0;
+    resize: none;
+    font-size: 16px;
+    outline:none;
+    padding: 8px 12px;
+}
+
+/* for icon elements */
+i {
+    margin: 0 5px;
+}
+
+/* for all button elements */
+button {
+    padding: 8px 18px;
+    font-size: 16px;
+    width: 150px !important;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer;
+    transition: 0.4s all;
+    color: white;
+}
+
+/* on hovering the button */
+button:hover {
+    box-shadow: 0 2px 1px 0 rgb(158, 158, 158);
+    color: rgb(66, 66, 66);
+}
+
+/* add button */
+#add {
+    background-color: cadetblue;
+    /* transform: translateX(130%); */
+}
+
+/* delete button */
+#delete {
+    background-color: chocolate;
+}
+
+
+@media (max-width: 1000px) {
+    #todo-box-div > * {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    #todo-box-div{
+        width: 100%;
+    }
+}

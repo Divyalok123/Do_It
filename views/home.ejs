@@ -1,8 +1,46 @@
 <html>
-    <head>
-        <title>Your TODO List</title>
-    </head>
-    <body>
-        
-    </body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your TO-DO List</title>
+    <script src="https://kit.fontawesome.com/fcba9de078.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <!-- The main box containing the list and the form to add or remove item -->
+    <div id="todo-box-div" class="flex">
+        <!-- div containing form for adding items to todo-list -->
+        <div id="todo-form-div">
+            <!-- div header -->
+            <h2>Your To-Do</h2>
+            <!-- form for adding items -->
+            <form id="to-do-form">
+                <input id="title" class="bottom-b" type="text" />
+                <textarea id="description" class="bottom-b" type="text"></textarea>
+                <!-- date and category will be inline for bigger widths -->
+                <div id="input-inline" class="flex">
+                    <input id="date" class="bottom-b" type="date" />
+                    <input id="category"class="bottom-b" type="text" />
+                </div>
+                <!-- button for adding item -->
+                <button type="submit" id="add"><i class="fas fa-plus"></i>Add to list</button>
+            </form>
+        </div>
+        <!-- div containing list items (scrollable) and button to delete items -->
+        <div id="todo-list-div">
+            <!-- button for deleting items -->
+            <button type="submit" id="delete"><i class="far fa-trash-alt"></i>Done</button>
+            <!-- list containing todo items -->
+            <ul>
+                <% for(let a of tasks) { %>
+                
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+
 </html>

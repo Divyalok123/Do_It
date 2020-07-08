@@ -5,15 +5,50 @@ const express = require('express');
 const port = 1111;
 
 //this module provides a way to work with directories and file paths
-const path = require('path');
+const path = require("path");
 
 //requiring configuration for setting up the database to be accessed by mongoose
 const db = require('./config/mongoose');
 
+//requiring Task schema/model
+//using this we will create entries and populate our collection
+const Task = require("./models/task");
+
 //firing up express
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
 
+app.use(express.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/assets'));
+
+let task_list = [
+    {
+        title: "Item 1",
+        description: 'item 1 -des',
+        due_date: '2012-12-13',
+        category: "aflakjsd"
+    },
+    {
+        title: "Item 2",
+        description: 'item 1 -des',
+        due_date: "2012-12-13",
+        category: "aflakjsd"
+    },
+    {
+        title: "Item 3",
+        description: 'item 1 -des',
+        due_date: "2012-12-13",
+        category: "aflakjsd"
+    }
+];
+
+app.get('/', function(req, res){
+    return res.render('home', {
+        tasks: task_list,
+    })
+});
 
 //creating a listener to the specified port
 app.listen(port, function(err) {
