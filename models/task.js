@@ -7,17 +7,13 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true
-    },
     due_data: {
         type: Date,
-        required: true
+        required: true,
+        get: value => value.toDateString()
     },
     category: {
         type: String,
-        get: value => value.toDateString()
     }
 });
 
