@@ -27,6 +27,23 @@ body {
 }
 
 /* some animations */
+.z-o {
+    animation-name: zero-to-one;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+}
+
+@keyframes zero-to-one {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
 
 .up-down {
     animation-name: up-down;
@@ -273,7 +290,8 @@ button {
 	outline: none;
 	cursor: pointer;
 	transition: 0.2s all;
-	color: #e6e1e1;
+    color: #e6e1e1;
+	margin: 14px 0;
 	border-radius: 2px;
 }
 
@@ -283,7 +301,6 @@ button:hover {
 /* add button */
 
 #add {
-	margin-top: 14px;
 	color: black;
 	background-color: rgb(170, 228, 210);
 }

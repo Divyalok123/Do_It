@@ -18,13 +18,12 @@
             <h1>Do It!</h1>
             <!-- form for adding items -->
             <form action="/new-task" method="POST" id="to-do-form" class="flex-column up-down">
-                <input id="title" name="title" class="bottom-b font-4" type="text" placeholder="I have to do this..."
-                    required />
+                <input id="title" name="title" class="bottom-b font-4" type="text" placeholder="I have to do this..." required />
                 <!-- <textarea id="description" class="bottom-b font-4" type="text"></textarea> -->
                 <!-- date and category will be inline for bigger widths -->
                 <div id="input-inline" class="flex-row">
-                    <input id="date" name="due_date" min="2020-07-20" class="bottom-b font-2" type="date" required />
-                    <select id="category" name="category" class="bottom-b font-2 dropdown">
+                    <input id="date" name="due_date" min="2020-07-20" max="2021-04-20" class="bottom-b font-2" type="date" required />
+                    <select id="category" name="category" class="bottom-b font-2 dropdown" type="text">
                         <option value="default" selected disabled>Choose a category</option>
                         <option value="Work">Work</option>
                         <option value="College">College</option>
@@ -58,7 +57,7 @@
             </ul>
         </div>
     </div>
-    <script src="/js/app.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
