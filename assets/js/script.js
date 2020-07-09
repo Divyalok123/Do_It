@@ -16,4 +16,10 @@ for (let a of buttons) {
   }
 }
 
-
+var deletebutton = document.getElementById("delete");
+deletebutton.addEventListener('click', function() {
+	var checks = document.querySelectorAll('.list-item input[type="checkbox"]');
+	for(let a in checks) {
+		
+	}
+});

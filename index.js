@@ -18,6 +18,9 @@ const { create } = require("./models/task");
 //firing up express
 const app = express();
 
+//to format date
+const dateformat = require('dateformat');
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -62,12 +65,18 @@ app.get("/", function (req, res) {
 app.post("/new-task", function (req, res) {
 	console.log(req.body);
 
-	const task = new Task(req.body);
+	const task = new Task({
+        title: req.body.title,
+        due_date: dateformat(req.body.date, "mmmm, d, yyyy"),
+        category: req.body.category
+    });
 	task.save();
 	res.redirect("back");
 });
 
 app.get("/delete-task", function(req, res){
+    console.log(req.body);
+
     
 });
 
