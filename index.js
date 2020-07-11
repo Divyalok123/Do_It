@@ -65,19 +65,32 @@ app.get("/", function (req, res) {
 app.post("/new-task", function (req, res) {
 	console.log(req.body);
 
-	const task = new Task({
-        title: req.body.title,
-        due_date: dateformat(req.body.date, "mmmm, d, yyyy"),
-        category: req.body.category
-    });
+	const task = new Task(req.body);
 	task.save();
 	res.redirect("back");
 });
 
-app.get("/delete-task", function(req, res){
-    console.log(req.body);
-
-    
+app.post("/delete-task", function(req, res){
+	let todelete = req.body.check;
+	console.log(todelete);
+	if(todelete == null) {
+        console.log("Nothing to delete");
+    }
+	else if(typeof(req.body.check) == "string") {
+		Task.findByIdAndDelete(todelete, function(err){
+			if(err)
+				console.log("Error occured while deleting (1 Item");
+		});
+	}
+	else {
+		for(let x of todelete) {
+			Task.findByIdAndDelete(x, function(err){
+				if(err)
+					console.log(`Error occured while deleting (${x} item)`);
+			});
+		}
+	}
+    return res.redirect('back');
 });
 
 //creating a listener to the specified port

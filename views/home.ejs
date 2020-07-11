@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your TO-DO List</title>
+    <title>Your TO-DO</title>
     <script src="https://kit.fontawesome.com/fcba9de078.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css" />
 </head>
@@ -19,7 +19,6 @@
             <!-- form for adding items -->
             <form action="/new-task" method="POST" id="to-do-form" class="flex-column up-down">
                 <input id="title" name="title" class="bottom-b font-4" type="text" placeholder="I have to do this..." required />
-                <!-- <textarea id="description" class="bottom-b font-4" type="text"></textarea> -->
                 <!-- date and category will be inline for bigger widths -->
                 <div id="input-inline" class="flex-row">
                     <input id="date" name="due_date" min="2020-07-20" max="2021-04-20" class="bottom-b font-2" type="date" required />
@@ -29,32 +28,39 @@
                         <option value="College">College</option>
                         <option value="Home">Home</option>
                         <option value="Group">Group</option>
+                        <option value="Personal">Personal</option>
                     </select>
                 </div>
                 <!-- button for adding item -->
-                <button type="submit" class="font-4" id="add"><i class="fas fa-plus"></i>Add to list</button>
+                <button type="submit" class="font-4" id="add">
+                    <i class="fas fa-plus"></i>Add to list</button>
             </form>
         </div>
         <!-- div containing list items (scrollable) and button to delete items -->
         <div id="todo-list-div" class="flex-column sizi">
-            <!-- button for deleting items -->
-            <button type="submit" class="font-4" id="delete"><i class="far fa-trash-alt"></i>Done</button>
+            
             <!-- list containing todo items -->
             <ul>
-                <% for(let a of tasks) { %>
-                <li>
-                    <div class="list-item">
-                        <input type="checkbox" class="pointer" />
-                        <div class="name-date font-3">
-                            <p><%= a.title %></p>
-                            <p><i class="far fa-calendar-alt"></i><%= a.due_date %></p>
+                <form method="POST" id="deleter" action="/delete-task">
+                    <% for(let a of tasks) { %>
+                    <li>
+                        <div class="list-item">
+                            <input id="checkbox" type="checkbox" name="check" class="pointer" value="<%= a.id %>" />
+                            <div class="name-date font-3">
+                                <p><%= a.title %></p>
+                                <p><i class="far fa-calendar-alt"></i><%= a.due_date %></p>
+                            </div>
+                            <div id="redundant"></div>
+                            <div class="categ-button font-2 disp"><%= a.category %></div>
                         </div>
-                        <div id="redundant"></div>
-                        <div class="categ-button font-2 disp"><%= a.category %></div>
-                    </div>
-                </li>
-                <% } %>
+                    </li>
+                    <% } %>
+                </form>
             </ul>
+
+            <!-- button for deleting items -->
+            <button type="submit" class="font-4" form="deleter" id="delete">
+                <i class="far fa-trash-alt"></i>Done</button>
         </div>
     </div>
     <script src="/js/script.js"></script>

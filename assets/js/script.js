@@ -9,7 +9,9 @@ for (let a of buttons) {
 		a.style.backgroundColor = "#2dgrb8";
 	} else if (a.innerHTML == "Group") {
 		a.style.backgroundColor = "#eb2d52";
-  }
+  	} else if (a.innerHTML == "Personal") {
+		a.style.backgroundColor = "#2c95e6";
+	}
   
   if(a.innerHTML.length == 0) {
     a.style.visibility="hidden";
