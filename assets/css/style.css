@@ -292,24 +292,24 @@ button:hover {
 /* add button */
 
 #add {
-	color: black;
 	background-color: rgb(170, 228, 210);
+	color: rgb(43, 46, 49);
 }
 
 #add:hover {
 	background-color: rgb(123, 173, 158);
-	color: rgb(44, 39, 39);
+	color: white;
 }
 
 /* delete button */
 #delete {
 	background-color: rgb(133, 5, 5);
 	color: blanchedalmond;
-	/* color: black; */
 }
+
 #delete:hover {
 	background-color: rgb(196, 63, 63);
-	color: blanchedalmond;
+	color: black;
 }
 
 /* todo-list */
