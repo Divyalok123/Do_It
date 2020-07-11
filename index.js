@@ -1,3 +1,4 @@
+
 //requiring express
 const express = require("express");
 
@@ -21,10 +22,14 @@ const app = express();
 //to format date
 const dateformat = require('dateformat');
 
+//setting up view engine and views
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+//turning on urlencoding to encode/decode the requests
 app.use(express.urlencoded({ extended: true }));
+
+//for using static files
 app.use(express.static(__dirname + "/assets"));
 
 // let task_list = [
@@ -50,6 +55,7 @@ app.use(express.static(__dirname + "/assets"));
 // 	},
 // ];
 
+/* to fetch the data when the page is loaded */
 app.get("/", function (req, res) {
 	Task.find({}, function (err, task) {
 		if (err) {
@@ -62,6 +68,7 @@ app.get("/", function (req, res) {
 	});
 });
 
+/* to add an item to the list */
 app.post("/new-task", function (req, res) {
 	console.log(req.body);
 
@@ -70,18 +77,22 @@ app.post("/new-task", function (req, res) {
 	res.redirect("back");
 });
 
+/* to delete list items */
 app.post("/delete-task", function(req, res){
 	let todelete = req.body.check;
 	console.log(todelete);
+	/* if the delete button was clicked without selecting any item */ 
 	if(todelete == null) {
         console.log("Nothing to delete");
-    }
+	}
+	/* if only one item is selected the req body will be a string */
 	else if(typeof(req.body.check) == "string") {
 		Task.findByIdAndDelete(todelete, function(err){
 			if(err)
 				console.log("Error occured while deleting (1 Item");
 		});
 	}
+	/* else it will be a array of string which we will iterate to delete items */
 	else {
 		for(let x of todelete) {
 			Task.findByIdAndDelete(x, function(err){

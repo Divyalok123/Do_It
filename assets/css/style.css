@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&family=Open+Sans:wght@600&family=Titillium+Web:wght@600&family=Ubuntu&display=swap");
 
+/* some overall styles */
 * {
 	padding: 0;
 	margin: 0;
@@ -45,6 +46,7 @@ body {
     }
 }
 
+/* for sliding items from bottom to their place */
 .up-down {
     animation-name: up-down;
     animation-timing-function: ease-out;
@@ -63,6 +65,7 @@ body {
     }
 }
 
+/* for sliding items from right to left */
 .disp {
     animation-name: disp;
     animation-iteration-count: 1;
@@ -81,6 +84,7 @@ body {
     }
 }
 
+/* for background color changing animation */
 .toggler {
     animation-name: toggler;
 	animation-timing-function: linear;
@@ -98,6 +102,7 @@ body {
 	}
 }
 
+/* for the jump type animation */
 .sizi {
     transition: ease-in-out;
     animation-name: sizi;
@@ -201,6 +206,7 @@ h1 {
 	position: relative;
 }
 
+/* for all directly next items in form */
 form > * {
 	width: 100%;
 	transition: 0.3s all;
@@ -210,15 +216,9 @@ form > *:focus {
 	box-shadow: 0 1px 3px 0 rgb(61, 60, 60);
 }
 
+/* for the form */
 #to-do-form {
 	width: 100%;
-}
-
-.categ-button {
-	border: 1px solid black;
-	padding: 4px 12px;
-	border-radius: 2px;
-	background-color: white;
 }
 
 /* For input fields */
@@ -230,6 +230,7 @@ form > *:focus {
 	border-bottom: 1.3px solid rgb(194, 201, 183);
 }
 
+/* for input items and select options */
 #todo-form-div input,
 #todo-form-div select {
 	background-color: rgb(248, 244, 248);
@@ -256,11 +257,13 @@ select > * {
 	width: 100%;
 }
 
+/* for two items stacked together horizontally */
 #input-inline > * {
 	width: 50% !important;
 	height: 44px;
 }
 
+/* for the first child of input-inline div */
 #input-inline input:nth-child(1) {
 	border-right: 1px solid rgb(83, 81, 81);
 }
@@ -319,6 +322,7 @@ button:hover {
 	width: 100%;
 }
 
+/* for every list item */
 .list-item {
 	width: 100%;
 	height: 50px;
@@ -336,6 +340,7 @@ li {
     overflow-y: auto;
 }
 
+/* for the name and date in list items */
 .list-item .name-date {
 	width: 200px;
 }
@@ -343,16 +348,19 @@ li {
 li > div > #redundant {
 	width: 8%;
 }
-
+/* for divs representing catergory */
 .categ-button {
     width: 70px !important;
     color: white;
     background-color: grey;
     text-align: center;
     border-radius: 5px;
-    box-shadow: 0 1px 3px 0 gray;
+	box-shadow: 0 1px 3px 0 gray;
+	padding: 4px 12px;
+	border: 1px solid black;
 }
 
+/* for checkboxes */
 #todo-list-div input[type="checkbox"] {
 	zoom: 1.5;
 	margin: 0 5px;

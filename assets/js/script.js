@@ -1,4 +1,5 @@
 
+/* for different colors in category buttons */
 var buttons = document.getElementsByClassName("categ-button");
 for (let a of buttons) {
 	if (a.innerHTML == "Work") {
@@ -6,7 +7,7 @@ for (let a of buttons) {
 	} else if (a.innerHTML == "College") {
 		a.style.backgroundColor = "#eb598d";
 	} else if (a.innerHTML == "Home") {
-		a.style.backgroundColor = "#2dgrb8";
+		a.style.backgroundColor = "#705d5d";
 	} else if (a.innerHTML == "Group") {
 		a.style.backgroundColor = "#eb2d52";
   	} else if (a.innerHTML == "Personal") {
@@ -18,6 +19,7 @@ for (let a of buttons) {
   }
 }
 
+/* just a check */
 var deletebutton = document.getElementById("delete");
 deletebutton.addEventListener('click', function() {
 	var checks = document.querySelectorAll('.list-item input[type="checkbox"]');

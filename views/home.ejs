@@ -17,11 +17,14 @@
             <!-- div header -->
             <h1>Do It!</h1>
             <!-- form for adding items -->
+            <!-- Not including things which are self explanatory like description/choose a category option etc. -->
             <form action="/new-task" method="POST" id="to-do-form" class="flex-column up-down">
-                <input id="title" name="title" class="bottom-b font-4" type="text" placeholder="I have to do this..." required />
+                <input id="title" name="title" class="bottom-b font-4" type="text" placeholder="I have to do this..."
+                    required />
                 <!-- date and category will be inline for bigger widths -->
                 <div id="input-inline" class="flex-row">
-                    <input id="date" name="due_date" min="2020-07-20" max="2021-04-20" class="bottom-b font-2" type="date" required />
+                    <input id="date" name="due_date" min="2020-07-20" max="2021-04-20" class="bottom-b font-2"
+                        type="date" required />
                     <select id="category" name="category" class="bottom-b font-2 dropdown" type="text">
                         <option value="default" selected disabled>Choose a category</option>
                         <option value="Work">Work</option>
@@ -38,12 +41,13 @@
         </div>
         <!-- div containing list items (scrollable) and button to delete items -->
         <div id="todo-list-div" class="flex-column sizi">
-            
+
             <!-- list containing todo items -->
             <ul>
                 <form method="POST" id="deleter" action="/delete-task">
                     <% for(let a of tasks) { %>
                     <li>
+                        <!-- div for every list item -->
                         <div class="list-item">
                             <input id="checkbox" type="checkbox" name="check" class="pointer" value="<%= a.id %>" />
                             <div class="name-date font-3">
